@@ -14,9 +14,10 @@
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/roundedrect"
         android:ems="10"
         android:hint="Input Date"
-        android:inputType="date|datetime"
+        android:inputType="datetime"
         android:textAlignment="center"
         android:textColor="@color/colorMain"
         android:textColorHighlight="@color/colorTeritiary"
@@ -56,5 +57,16 @@
         app:layout_constraintVertical_bias="0.87">
 
     </ListView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="4dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_zoom"
+        app:layout_constraintEnd_toEndOf="@+id/editTextDate"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
