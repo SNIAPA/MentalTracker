@@ -24,7 +24,7 @@
     <View
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="256dp"
+        android:layout_marginStart="268dp"
         android:layout_marginTop="124dp"
         android:background="@drawable/mood_tracker_selector"
         android:rotation="270"
