@@ -9,19 +9,20 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorButton"
-            app:popupTheme="@style/AppTheme.AppBarOverlay" />
+            android:background="?attr/colorPrimary"
+            app:subtitleTextColor="@color/colorMain"
+            app:titleTextColor="@color/colorMain" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include
-        layout="@layout/content_main"
-        android:background="@color/colorBackgroundMain" />
+    <include layout="@layout/content_main" />
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
