@@ -12,55 +12,64 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:contentDescription="Selection"
+        android:src="@drawable/image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/image"/>
+        app:layout_constraintVertical_bias="0.167" />
 
     <View
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="260dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="125dp"
         android:background="@drawable/mood_tracker_selector"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499">
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
 
     </View>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:text="Button"
+        android:layout_marginTop="20dp"
+        android:text="Zakończ"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        tools:layout_editor_absoluteX="157dp" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:text="Button"
+        android:layout_marginTop="20dp"
+        android:enabled="false"
+        android:text="Wstecz"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        tools:layout_editor_absoluteX="28dp" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Button"
+        android:layout_marginTop="20dp"
+        android:text="Dalej"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/submit"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        tools:layout_editor_absoluteX="287dp" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <SeekBar
         android:id="@+id/seekBar"
