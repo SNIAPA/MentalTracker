@@ -1,7 +1,6 @@
 package com.codeenjoyers.mentaltracker.ui.slideshow
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +57,7 @@ class SlideshowFragment : Fragment() {
         })
 
         next.setOnClickListener {
-            selectionList.add(page.toString() /*getSelectionValue()*/)
+            selectionList.add(MoodDataClass.at(180 + seekBar.progress))//page.toString() /*getSelectionValue()*/)
             createPage(++page)
         }
 
@@ -68,7 +67,8 @@ class SlideshowFragment : Fragment() {
         }
 
         submit.setOnClickListener {
-            selectionList.add(page.toString() /*getSelectionValue()*/)
+            selectionList.add(MoodDataClass.at(180 + seekBar.progress))
+            //selectionList.add(page.toString() /*getSelectionValue()*/)
 
 
             saveData(selectionList.last())
@@ -79,7 +79,7 @@ class SlideshowFragment : Fragment() {
         return root
     }
 
-    fun saveData(data : String = "null", note : String = "null") : Unit{
+    fun saveData(data : String = null?:"null", note : String = null?:"null") : Unit{
         fun format(string: String) : String {
             fun convertTime(lastTimeUsed: Long): String {
                 val date = Date(lastTimeUsed)
@@ -113,11 +113,6 @@ class SlideshowFragment : Fragment() {
             }
             1 -> {
                 imageView.setImageResource(R.drawable.codeenjoyerslogo)
-                back.isEnabled = true
-                next.isEnabled = true
-            }
-            2 -> {
-                imageView.setImageResource(R.drawable.image)
                 back.isEnabled = true
                 next.isEnabled = false
             }
