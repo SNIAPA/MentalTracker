@@ -1,6 +1,7 @@
 package com.codeenjoyers.mentaltracker.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.codeenjoyers.mentaltracker.R
+import com.codeenjoyers.mentaltracker.ui.slideshow.SlideshowFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.w3c.dom.Text
 import java.io.File
@@ -50,14 +52,20 @@ class HomeFragment : Fragment() {
 
 
         val fab: FloatingActionButton = root.findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
+            val select : SlideshowFragment = SlideshowFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(this.id, select, "tag")
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
 
         val SAVEFILE = File(context?.filesDir, "MOODSAVE.txt")
         var fileString: String
         if (SAVEFILE.exists()){
 
-            fileString = context!!.openFileInput("MOODSAVE.txt")!!.bufferedReader()!!.useLines { lines ->
+            fileString = requireContext().openFileInput("MOODSAVE.txt")!!.bufferedReader().useLines { lines ->
                 lines.fold("") { some, text ->
                     "$some$text"
                 }
@@ -85,7 +93,7 @@ class HomeFragment : Fragment() {
 
         val ListViews = root.findViewById<ListView>(R.id.listView)
 
-        ListViews.adapter = MyCustomAdapter(context!!,records)
+        ListViews.adapter = MyCustomAdapter(requireContext(),records)
 
         val TextInput = root.findViewById<EditText>(R.id.editTextDate)
 
