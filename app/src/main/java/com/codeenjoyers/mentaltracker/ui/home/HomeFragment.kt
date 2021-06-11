@@ -40,12 +40,12 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
+            ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
 
@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
             fileString = ""
         }
 
-        fileString = "0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&"
+        fileString = "0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&"
 
         var splitedsting = fileString.split("&")
 
@@ -124,16 +124,24 @@ class HomeFragment : Fragment() {
             val layoutInflater = LayoutInflater.from(mContext)
             val row = layoutInflater.inflate(R.layout.list_row,viewGroup,false)
             val textValue = row.findViewById<TextView>(R.id.textValue)
+            val textValue2 = row.findViewById<TextView>(R.id.textValue2)
             val date = row.findViewById<TextView>(R.id.date)
 
-            if(mRecords[position].mMood == "none"){
-                textValue.text = mRecords[position].mCustom
-            }else{
+            if(mRecords[position].mMood != "none"){
                 textValue.text = mRecords[position].mMood
+            }else {
+                textValue.text = "No notes"
             }
+            textValue2.text = mRecords[position].mCustom
 
 
-            date.text= mRecords[position].mdateTime
+
+
+
+            val datetime= mRecords[position].mdateTime.split(":")
+
+            date.text = datetime[0].toString() + "/" + datetime[1].toString() + "/" + datetime[2].toString() +" "+ datetime[3].toString() + ":" +datetime[4].toString()
+
             return row
         }
 
