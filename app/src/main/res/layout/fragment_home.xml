@@ -4,7 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:background="@color/colorBackgroundMain"
+    tools:context=".ui.home.HomeFragment"
+    tools:layout_editor_absoluteY="81dp">
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/roundedrect"
+        android:ems="10"
+        android:hint="Input Date"
+        android:inputType="datetime"
+        android:textAlignment="center"
+        android:textColor="@color/colorMain"
+        android:textColorHighlight="@color/colorTeritiary"
+        android:textColorHint="@color/colorSecondary"
+        android:textColorLink="@color/colorTeritiary"
+        android:textCursorDrawable="@color/colorTeritiary"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.275" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -18,26 +43,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_note" />
 
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="datetime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ListView
         android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="382dp"
+        android:layout_height="606dp"
         android:background="@color/colorBackgroundMain"
+        android:foregroundTint="@color/colorMain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87">
+
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="4dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_zoom"
+        app:layout_constraintEnd_toEndOf="@+id/editTextDate"
+        app:layout_constraintTop_toTopOf="@+id/editTextDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
