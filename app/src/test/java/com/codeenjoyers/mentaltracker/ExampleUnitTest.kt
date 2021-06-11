@@ -1,4 +1,4 @@
-package com.example.mentaltracker
+package com.codeenjoyers.mentaltracker
 
 import org.junit.Test
 
