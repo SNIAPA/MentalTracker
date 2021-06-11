@@ -1,31 +1,45 @@
 package com.codeenjoyers.mentaltracker.ui.slideshow
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
+import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.codeenjoyers.mentaltracker.R
+
 
 class SlideshowFragment : Fragment() {
 
-    private lateinit var slideshowViewModel: SlideshowViewModel
-
+    private lateinit var imageView: ImageView
+    private lateinit var seekBar: SeekBar
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-                ViewModelProvider(this).get(SlideshowViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+
+        imageView = root.findViewById(R.id.imageView2)
+        seekBar = root.findViewById(R.id.seekBar)
+
+        seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                imageView.rotation = 180f + progress.toFloat()
+            }
         })
+
         return root
     }
 }
