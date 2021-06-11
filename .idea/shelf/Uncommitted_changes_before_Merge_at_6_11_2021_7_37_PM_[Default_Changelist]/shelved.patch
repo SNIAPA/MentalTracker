@@ -1,0 +1,60 @@
+Index: app/src/main/res/layout/app_bar_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <com.google.android.material.appbar.AppBarLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:theme=\"@style/Theme.MentalTracker.AppBarOverlay\">\r\n\r\n        <androidx.appcompat.widget.Toolbar\r\n            android:id=\"@+id/toolbar\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"?attr/actionBarSize\"\r\n            android:background=\"?attr/colorPrimary\"\r\n            app:popupTheme=\"@style/Theme.MentalTracker.PopupOverlay\" />\r\n\r\n    </com.google.android.material.appbar.AppBarLayout>\r\n\r\n    <include layout=\"@layout/content_main\" />\r\n\r\n    <com.google.android.material.floatingactionbutton.FloatingActionButton\r\n        android:id=\"@+id/fab\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_gravity=\"bottom|end\"\r\n        android:layout_margin=\"@dimen/fab_margin\"\r\n        app:srcCompat=\"@android:drawable/ic_dialog_email\" />\r\n\r\n</androidx.coordinatorlayout.widget.CoordinatorLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/app_bar_main.xml	(revision 164226f56ff73a05cbcebe46d3e415a51c999d1f)
++++ app/src/main/res/layout/app_bar_main.xml	(date 1623433014633)
+@@ -22,12 +22,4 @@
+ 
+     <include layout="@layout/content_main" />
+ 
+-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+-        android:id="@+id/fab"
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:layout_gravity="bottom|end"
+-        android:layout_margin="@dimen/fab_margin"
+-        app:srcCompat="@android:drawable/ic_dialog_email" />
+-
+ </androidx.coordinatorlayout.widget.CoordinatorLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">MentalTracker</string>\r\n    <string name=\"navigation_drawer_open\">Open navigation drawer</string>\r\n    <string name=\"navigation_drawer_close\">Close navigation drawer</string>\r\n    <string name=\"nav_header_title\">Mental Tracker</string>\r\n    <string name=\"nav_header_subtitle\">Made by: Code Enjoyers</string>\r\n    <string name=\"nav_header_desc\">Navigation header</string>\r\n    <string name=\"action_settings\">Settings</string>\r\n\r\n    <string name=\"menu_home\">Notatki</string>\r\n    <string name=\"menu_gallery\">Cwiczenia Oddychania</string>\r\n    <string name=\"menu_slideshow\">Ustawienia</string>\r\n    <string name=\"menu_stats\">Statystyki</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 164226f56ff73a05cbcebe46d3e415a51c999d1f)
++++ app/src/main/res/values/strings.xml	(date 1623430096969)
+@@ -8,7 +8,7 @@
+     <string name="action_settings">Settings</string>
+ 
+     <string name="menu_home">Notatki</string>
+-    <string name="menu_gallery">Cwiczenia Oddychania</string>
++    <string name="menu_gallery">Cwiczenia oddychania</string>
+     <string name="menu_slideshow">Ustawienia</string>
+     <string name="menu_stats">Statystyki</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n<color name=\"colorPrimary\">#6200EE</color>\r\n<color name=\"colorPrimaryDark\">#3700B3</color>\r\n<color name=\"colorAccent\">#03DAC5</color>\r\n    <!-- Main elements colors-->\r\n<color name=\"colorBackgroundMain\">#16161A</color>\r\n<color name=\"colorButton\">#7F5AF0</color>\r\n<color name=\"colorText\">#FFFFFE</color>\r\n<color name=\"colorParagraph\">#94A1B2</color>\r\n    <!-- Additional colors-->\r\n<color name=\"colorStroke\">#010101</color>\r\n<color name=\"colorMain\">#FFFFFE</color>\r\n<color name=\"colorSecondary\">#72757E</color>\r\n<color name=\"colorTeritiary\">#2CB67D</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision 164226f56ff73a05cbcebe46d3e415a51c999d1f)
++++ app/src/main/res/values/colors.xml	(date 1623429935164)
+@@ -4,7 +4,7 @@
+ <color name="colorPrimaryDark">#3700B3</color>
+ <color name="colorAccent">#03DAC5</color>
+     <!-- Main elements colors-->
+-<color name="colorBackgroundMain">#16161A</color>
++<color name="colorBackgroundMain">#242629</color>
+ <color name="colorButton">#7F5AF0</color>
+ <color name="colorText">#FFFFFE</color>
+ <color name="colorParagraph">#94A1B2</color>
