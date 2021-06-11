@@ -9,11 +9,15 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.codeenjoyers.mentaltracker.R
+import com.codeenjoyers.mentaltracker.ui.home.HomeFragment
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class SlideshowFragment : Fragment() {
     private lateinit var imageView: ImageView
@@ -27,6 +31,7 @@ class SlideshowFragment : Fragment() {
     companion object {
         const val FILENAME = "FILENAME"
         const val INTERSPACE = "&"
+        const val INFO_INTERSPACE = "/"
     }
 
     override fun onCreateView(
@@ -52,12 +57,11 @@ class SlideshowFragment : Fragment() {
 
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 imageView.rotation = 180f + progress.toFloat()
-                //Log.d("WHAT",MoodDataClass.at(180 + progress))
             }
         })
 
         next.setOnClickListener {
-            selectionList.add(MoodDataClass.at(180 + seekBar.progress))//page.toString() /*getSelectionValue()*/)
+            selectionList.add(MoodDataClass.at(180 + seekBar.progress))
             createPage(++page)
         }
 
@@ -68,18 +72,22 @@ class SlideshowFragment : Fragment() {
 
         submit.setOnClickListener {
             selectionList.add(MoodDataClass.at(180 + seekBar.progress))
-            //selectionList.add(page.toString() /*getSelectionValue()*/)
-
-
             saveData(selectionList.last())
 
             selectionList.removeAt(selectionList.lastIndex)
+
+            val fragment2 = HomeFragment()
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(this.id, fragment2, "tag")
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
 
         return root
     }
 
-    fun saveData(data : String = null?:"null", note : String = null?:"null") : Unit{
+    fun saveData(data: String = null ?: "null", note: String = null ?: "null") : Unit{
         fun format(string: String) : String {
             fun convertTime(lastTimeUsed: Long): String {
                 val date = Date(lastTimeUsed)
@@ -88,7 +96,7 @@ class SlideshowFragment : Fragment() {
                 return format.format(date)
             }
 
-            return (convertTime( System.currentTimeMillis() ) + INTERSPACE + string + INTERSPACE + note)
+            return (convertTime(System.currentTimeMillis()) + INFO_INTERSPACE + string + INFO_INTERSPACE + note)
         }
 
         val SAVEFILE = File(context?.filesDir, FILENAME)
