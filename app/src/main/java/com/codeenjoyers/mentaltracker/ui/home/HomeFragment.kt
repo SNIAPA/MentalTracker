@@ -25,7 +25,6 @@ import java.util.*
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
 
     private class record(dateTime: String, Mood:String,Custom:String){
 
@@ -46,8 +45,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
 
@@ -134,12 +131,12 @@ class HomeFragment : Fragment() {
             val textValue2 = row.findViewById<TextView>(R.id.textValue2)
             val date = row.findViewById<TextView>(R.id.date)
 
-            if(mRecords[position].mMood != "none"){
-                textValue.text = mRecords[position].mMood
+            if(mRecords[position].mCustom != "none"){
+                textValue.text = mRecords[position].mCustom
             }else {
                 textValue.text = "No notes"
             }
-            textValue2.text = mRecords[position].mCustom
+            textValue2.text = mRecords[position].mMood
 
 
 
