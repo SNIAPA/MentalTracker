@@ -14,33 +14,34 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="x"
+        android:text="Your statistics!"
         android:textAlignment="center"
+        android:textColor="@color/colorText"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767" />
+        app:layout_constraintVertical_bias="0.029" />
 
     <com.codeenjoyers.mentaltracker.codeclasses.GraphView
         android:id="@+id/graph_view"
         android:layout_width="305dp"
         android:layout_height="370dp"
-        android:layout_margin="8dp"
+        android:layout_marginTop="28dp"
         android:background="@color/colorThird"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintTop_toBottomOf="@+id/text_home"
+        app:layout_constraintVertical_bias="0.0" />
 
     <SeekBar
         android:id="@+id/seekBar2"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="327dp"
-        android:layout_height="88dp"
+        android:layout_width="326dp"
+        android:layout_height="47dp"
         android:backgroundTint="@color/colorTeritiary"
         android:indeterminateTint="@color/colorTeritiary"
         android:max="10"
@@ -50,8 +51,9 @@
         android:thumbTint="@color/colorTeritiary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919"
+        app:layout_constraintTop_toBottomOf="@+id/graph_view"
+        app:layout_constraintVertical_bias="0.142"
         app:tickMarkTint="@color/colorTeritiary" />
 </androidx.constraintlayout.widget.ConstraintLayout>
