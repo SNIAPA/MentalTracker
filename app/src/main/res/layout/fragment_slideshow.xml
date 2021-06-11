@@ -13,55 +13,67 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:contentDescription="Selection"
+        android:src="@drawable/image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/image"/>
+        app:layout_constraintVertical_bias="0.183" />
 
     <View
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="260dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="124dp"
         android:background="@drawable/mood_tracker_selector"
         android:rotation="270"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499">
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
 
     </View>
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        tools:layout_editor_absoluteX="157dp" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        tools:layout_editor_absoluteX="28dp" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorButton"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        tools:layout_editor_absoluteX="287dp" />
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorButton"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorButton"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.5" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -70,8 +82,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/colorTeritiary"
+        android:backgroundTintMode="src_over"
         android:max="360"
         android:progress="180"
+        android:progressBackgroundTint="@color/colorTeritiary"
+        android:progressBackgroundTintMode="multiply"
+        android:progressTint="@color/colorTeritiary"
+        android:progressTintMode="src_over"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
