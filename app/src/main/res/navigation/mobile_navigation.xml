@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.codeenjoyers.mentaltracker.ui.slideshow.SlideshowFragment"
+        android:name="com.codeenjoyers.mentaltracker.ui.settings.SettingsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_settings" />
 </navigation>
