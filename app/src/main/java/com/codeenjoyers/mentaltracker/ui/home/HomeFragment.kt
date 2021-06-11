@@ -60,7 +60,6 @@ class HomeFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        origin/mauzer
         val SAVEFILE = File(context?.filesDir, "MOODSAVE.txt")
         var fileString: String
         if (SAVEFILE.exists()){
