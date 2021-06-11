@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_notatki"
@@ -20,7 +19,6 @@
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings"
-
             android:title="@string/menu_slideshow" />
     </group>
 </menu>
