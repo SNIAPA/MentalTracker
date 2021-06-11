@@ -16,16 +16,16 @@
         android:src="@drawable/image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.167" />
 
     <View
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="268dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="125dp"
         android:background="@drawable/mood_tracker_selector"
         android:rotation="270"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -34,46 +34,43 @@
     </View>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorButton"
-        android:text="Button"
+        android:layout_marginTop="20dp"
+        android:text="Zakończ"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorButton"
-        android:text="Button"
+        android:layout_marginTop="20dp"
+        android:enabled="false"
+        android:text="Wstecz"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintEnd_toStartOf="@+id/submit"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorButton"
-        android:text="Button"
+        android:layout_marginTop="20dp"
+        android:text="Dalej"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/submit"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -82,14 +79,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/colorTeritiary"
-        android:backgroundTintMode="src_over"
         android:max="360"
         android:progress="180"
-        android:progressBackgroundTint="@color/colorTeritiary"
-        android:progressBackgroundTintMode="multiply"
-        android:progressTint="@color/colorTeritiary"
-        android:progressTintMode="src_over"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
