@@ -22,7 +22,7 @@ class StatsFragment : Fragment() {
         slideshowViewModel =
                 ViewModelProvider(this).get(StatsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
+        val textView: TextView = root.findViewById(R.id.text_home)
         slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
