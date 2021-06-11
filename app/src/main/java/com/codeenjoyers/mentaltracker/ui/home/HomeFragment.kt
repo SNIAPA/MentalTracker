@@ -6,7 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.textservice.TextInfo
 import android.widget.BaseAdapter
+import android.widget.EditText
 import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -85,6 +87,8 @@ class HomeFragment : Fragment() {
 
         ListViews.adapter = MyCustomAdapter(context!!,records)
 
+        val TextInput = root.findViewById<EditText>(R.id.editTextDate)
+
 
 
         return root
@@ -132,6 +136,8 @@ class HomeFragment : Fragment() {
             date.text= mRecords[position].mdateTime
             return row
         }
+
+
 
     }
 
