@@ -17,16 +17,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_search"
+        app:layout_constraintRight_toRightOf="@id/editTextDate"
+        app:layout_constraintTop_toTopOf="@id/editTextDate"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="8px"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:background="@drawable/circle">
+
+
+    </ImageView>
+
+
+
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110px"
+        android:layout_marginTop="20px"
+        android:background="@drawable/roundedrect"
         android:ems="10"
-        android:inputType="datetime"
+        android:importantForAutofill="no"
+        android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
 
     <ListView
         android:id="@+id/listView"
@@ -36,6 +57,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintVertical_bias="0.393">
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
