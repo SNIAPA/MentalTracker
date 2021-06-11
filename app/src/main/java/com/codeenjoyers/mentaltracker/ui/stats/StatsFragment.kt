@@ -50,8 +50,9 @@ class StatsFragment : Fragment() {
     }
     private fun generateRandomDataPoints(): List<DataPoint> {
         val random = Random()
-        return (0..5).map {
-            DataPoint(it, random.nextInt(50) + 1)
+        return (0..6).map {
+            DataPoint(it, random.nextInt(10))
+            //DataPoint(it, 1)
         }
     }
 }
