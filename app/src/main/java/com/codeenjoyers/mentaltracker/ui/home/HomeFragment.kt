@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
             fileString = ""
         }
 
-        fileString = "0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&"
+        fileString = "0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&0000:00:00:11:12/Happy/None&"
 
         var splitedsting = fileString.split("&")
 
