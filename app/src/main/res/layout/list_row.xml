@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Date"
-        android:textColor="#fff"
         android:textAlignment="viewEnd"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,11 @@
         android:id="@+id/textValue2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="44dp"
         android:text="test2"
         android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
