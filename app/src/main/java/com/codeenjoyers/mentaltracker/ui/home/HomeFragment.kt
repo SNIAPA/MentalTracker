@@ -60,11 +60,11 @@ class HomeFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        val SAVEFILE = File(context?.filesDir, "MOODSAVE.txt")
+        val SAVEFILE = File(context?.filesDir, SlideshowFragment.FILENAME)
         var fileString: String
         if (SAVEFILE.exists()){
 
-            fileString = requireContext().openFileInput("MOODSAVE.txt")!!.bufferedReader().useLines { lines ->
+            fileString = requireContext().openFileInput(SlideshowFragment.FILENAME)!!.bufferedReader().useLines { lines ->
                 lines.fold("") { some, text ->
                     "$some$text"
                 }
