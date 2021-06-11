@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.codeenjoyers.mentaltracker.ui.stats.StatsFragment"
+        android:label="@string/menu_stats"
+        tools:layout="@layout/fragment_stats" />
+
+    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.codeenjoyers.mentaltracker.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
