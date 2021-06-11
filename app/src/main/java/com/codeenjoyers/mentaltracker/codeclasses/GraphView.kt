@@ -11,12 +11,15 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
 
     private val dataSet = mutableListOf<DataPoint>()
     private var xMin = 0
-    private var xMax = 10
+    private var xMax = 0
     private var yMin = 0
-    private var yMax = 10
+    private var yMax = 0
+    private var minVal = 0F
+    private var maxVal = 0F
+    private var amplitude = 0F
 
     private val dataPointPaint = Paint().apply {
-        color = Color.BLUE
+        color = Color.RED
         strokeWidth = 7f
         style = Paint.Style.STROKE
     }
@@ -32,13 +35,31 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
     }
 
     private val axisLinePaint = Paint().apply {
-        color = Color.RED
+        color = Color.BLACK
         strokeWidth = 10f
+    }
+
+    private val canvText = Paint().apply {
+        color = Color.BLACK
+        textSize=50F
+        strokeWidth = 7f
+        isAntiAlias = true
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
+        dataSet.forEachIndexed { index, currentDataPoint ->
+            if (maxVal<currentDataPoint.yVal){
+                maxVal= currentDataPoint.yVal.toFloat()
+            }
+        }
+        minVal=maxVal
+        dataSet.forEachIndexed { index, currentDataPoint ->
+            if (minVal>currentDataPoint.yVal){
+                minVal= currentDataPoint.yVal.toFloat()
+            }
+        }
+        amplitude = maxVal-minVal
         dataSet.forEachIndexed { index, currentDataPoint ->
             val realX = currentDataPoint.xVal.toRealX()
             val realY = currentDataPoint.yVal.toRealY()
@@ -49,11 +70,14 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
                 val startY = currentDataPoint.yVal.toRealY()
                 val endX = nextDataPoint.xVal.toRealX()
                 val endY = nextDataPoint.yVal.toRealY()
-                canvas.drawLine(startX, startY, endX, endY, dataPointLinePaint)
+                canvas.drawLine(startX.toFloat(), startY.toFloat(), endX.toFloat(), endY.toFloat(), dataPointLinePaint)
             }
 
-            canvas.drawCircle(realX, realY, 7f, dataPointFillPaint)
-            canvas.drawCircle(realX, realY, 7f, dataPointPaint)
+            canvas.drawCircle(realX.toFloat(), realY.toFloat(), 7f, dataPointFillPaint)
+            canvas.drawCircle(realX.toFloat(), realY.toFloat(), 7f, dataPointPaint)
+
+            canvas.drawText("${currentDataPoint.yVal}",realX.toFloat()+10,realY.toFloat()-10,canvText)
+            canvas.drawCircle(realX.toFloat(), realY.toFloat(), 7f, dataPointFillPaint)
         }
 
         canvas.drawLine(0f, 0f, 0f, height.toFloat(), axisLinePaint)
@@ -70,8 +94,8 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
         invalidate()
     }
 
-    private fun Int.toRealX() = toFloat() / xMax * width
-    private fun Int.toRealY() = toFloat() / yMax * height
+    private fun Int.toRealX() = (toFloat() / xMax * width/1.2).toInt()+30
+    private fun Int.toRealY() = height-(height*(toFloat()/maxVal))/2
 }
 
 data class DataPoint(

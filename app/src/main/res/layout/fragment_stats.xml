@@ -25,8 +25,8 @@
 
     <com.codeenjoyers.mentaltracker.codeclasses.GraphView
         android:id="@+id/graph_view"
-        android:layout_width="298dp"
-        android:layout_height="340dp"
+        android:layout_width="305dp"
+        android:layout_height="370dp"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
