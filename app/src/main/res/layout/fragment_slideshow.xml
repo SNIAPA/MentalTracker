@@ -5,6 +5,7 @@
     android:id="@+id/fragment_slideshow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundMain"
     tools:context=".ui.slideshow.SlideshowFragment">
 
     <ImageView
