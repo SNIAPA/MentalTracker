@@ -10,4 +10,5 @@
     <string name="menu_home">Notatki</string>
     <string name="menu_gallery">Cwiczenia Oddychania</string>
     <string name="menu_slideshow">Ustawienia</string>
+    <string name="menu_stats">Statystyki</string>
 </resources>
