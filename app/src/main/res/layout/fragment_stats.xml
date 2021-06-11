@@ -29,23 +29,29 @@
         android:layout_width="305dp"
         android:layout_height="370dp"
         android:layout_margin="8dp"
+        android:background="@color/colorThird"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
+        app:layout_constraintVertical_bias="0.193" />
 
     <SeekBar
         android:id="@+id/seekBar2"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="327dp"
         android:layout_height="88dp"
+        android:backgroundTint="@color/colorTeritiary"
+        android:indeterminateTint="@color/colorTeritiary"
         android:max="10"
         android:progress="3"
+        android:progressBackgroundTint="@color/colorTeritiary"
+        android:progressTint="@color/colorTeritiary"
+        android:thumbTint="@color/colorTeritiary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919" />
+        app:layout_constraintVertical_bias="0.919"
+        app:tickMarkTint="@color/colorTeritiary" />
 </androidx.constraintlayout.widget.ConstraintLayout>

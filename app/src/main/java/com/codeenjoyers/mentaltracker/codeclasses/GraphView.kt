@@ -19,29 +19,29 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
     private var amplitude = 0F
 
     private val dataPointPaint = Paint().apply {
-        color = Color.RED
+        color = Color.parseColor("#7F5AF0")
         strokeWidth = 7f
         style = Paint.Style.STROKE
     }
 
     private val dataPointFillPaint = Paint().apply {
-        color = Color.WHITE
+        color = Color.parseColor("#7F5AF0")
     }
 
     private val dataPointLinePaint = Paint().apply {
-        color = Color.BLUE
+        color = Color.parseColor("#2CB67D")
         strokeWidth = 7f
         isAntiAlias = true
     }
 
     private val axisLinePaint = Paint().apply {
-        color = Color.BLACK
+        color = Color.parseColor("#72757E")
         strokeWidth = 10f
     }
 
     private val canvText = Paint().apply {
-        color = Color.BLACK
-        textSize=50F
+        color = Color.parseColor("#FFFFFE")
+        textSize = 50F
         strokeWidth = 7f
         isAntiAlias = true
     }
