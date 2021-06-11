@@ -3,4 +3,14 @@
 <color name="colorPrimary">#6200EE</color>
 <color name="colorPrimaryDark">#3700B3</color>
 <color name="colorAccent">#03DAC5</color>
+    <!-- Main elements colors-->
+<color name="colorBackgroundMain">#16161A</color>
+<color name="colorButton">#7F5AF0</color>
+<color name="colorText">#FFFFFE</color>
+<color name="colorParagraph">#94A1B2</color>
+    <!-- Additional colors-->
+<color name="colorStroke">#010101</color>
+<color name="colorMain">#FFFFFE</color>
+<color name="colorSecondary">#72757E</color>
+<color name="colorTeritiary">#2CB67D</color>
 </resources>
