@@ -164,6 +164,15 @@ class SlideshowFragment : Fragment() {
                 }
 
             })
+            builder.setOnCancelListener {
+                val fragment2 = HomeFragment()
+                val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(this@SlideshowFragment.id, fragment2, "tag")
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+
             builder.show()
 
         }
