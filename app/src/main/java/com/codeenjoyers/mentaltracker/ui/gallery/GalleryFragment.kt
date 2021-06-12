@@ -57,19 +57,22 @@ class GalleryFragment : Fragment() {
             }, 5000)
             Handler().postDelayed({
                 root.findViewById<TextView>(R.id.text_gallery).alpha=0F
+                root.findViewById<TextView>(R.id.text_gallery).text="3"
             }, 7000)
 
-            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.first_zoom_in)) }, 8000)
-            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_out)) }, 100000)
-            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_in)) }, 12000)
-            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_out)) }, 14000)
-            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.last_zoom_out)) }, 16000)
-            Handler().postDelayed({ root.findViewById<Button>(R.id.breathBtn).startAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_in)) }, 180000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.first_zoom_in)) }, 7000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_out)) }, 10000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_in)) }, 13000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_out)) }, 16000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_in)) }, 19000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.zoom_out)) }, 21000)
+            Handler().postDelayed({ root.findViewById<ImageView>(R.id.imageView3).startAnimation(AnimationUtils.loadAnimation(context,R.anim.last_zoom_out)) }, 24000)
+            Handler().postDelayed({ root.findViewById<Button>(R.id.breathBtn).startAnimation(AnimationUtils.loadAnimation(context,R.anim.fade_in)) }, 27000)
 
             Handler().postDelayed({
                 root.findViewById<Button>(R.id.breathBtn).alpha=1F
                 root.findViewById<Button>(R.id.breathBtn).isEnabled=true
-            }, 140000)
+            }, 28000)
 
 
 

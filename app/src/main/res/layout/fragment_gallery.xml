@@ -27,9 +27,9 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="168dp"
-        android:layout_height="180dp"
-        android:background="#4659C8"
+        android:layout_width="174dp"
+        android:layout_height="171dp"
+        android:foreground="@drawable/circle"
         android:src="@drawable/circle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

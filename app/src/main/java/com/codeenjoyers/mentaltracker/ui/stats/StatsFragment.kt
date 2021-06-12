@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.provider.Telephony.Mms.Part.FILENAME
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+import android.provider.Telephony.Mms.Part.FILENAME
 
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -76,11 +78,11 @@ class StatsFragment : Fragment() {
     @SuppressLint("SimpleDateFormat")
     private fun generateDataPoints(): List<DataPoint> {
         val random = Random()
-        val SAVEFILE = File(context?.filesDir, SlideshowFragment.FILENAME)
+        val SAVEFILE = File(context?.filesDir, FILENAME)
         var fileString: String
         if (SAVEFILE.exists()){
 
-            fileString = requireContext().openFileInput(SlideshowFragment.FILENAME)!!.bufferedReader().useLines { lines ->
+            fileString = requireContext().openFileInput(FILENAME)!!.bufferedReader().useLines { lines ->
                 lines.fold("") { some, text ->
                     "$some$text"
                 }
@@ -152,13 +154,13 @@ class StatsFragment : Fragment() {
             return (convertTime( System.currentTimeMillis() ) + "/" + string + "/" + note)
         }
 
-        val SAVEFILE = File(context?.filesDir, SlideshowFragment.FILENAME)
-        val oldText = if (SAVEFILE.exists()) requireContext().openFileInput(SlideshowFragment.FILENAME).bufferedReader().useLines { lines ->
+        val SAVEFILE = File(context?.filesDir, FILENAME)
+        val oldText = if (SAVEFILE.exists()) requireContext().openFileInput(FILENAME).bufferedReader().useLines { lines ->
             lines.fold("") { some, text ->
                 "$some$text"
             }}.toString() else ""
 
-        val newText = (oldText+format(data) + SlideshowFragment.INTERSPACE)
+        val newText = (oldText+format(data) + "/")
 
         FileOutputStream(SAVEFILE).write(
             newText.toByteArray()

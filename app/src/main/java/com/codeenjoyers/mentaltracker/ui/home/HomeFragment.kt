@@ -3,6 +3,7 @@ package com.codeenjoyers.mentaltracker.ui.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Telephony.Mms.Part.FILENAME
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.w3c.dom.Text
 import java.io.File
 import java.util.*
+import android.provider.Telephony.Mms.Part.FILENAME
 
 
 class HomeFragment : Fragment() {
@@ -60,11 +62,11 @@ class HomeFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        val SAVEFILE = File(context?.filesDir, SlideshowFragment.FILENAME)
+        val SAVEFILE = File(context?.filesDir, FILENAME)
         var fileString: String
         if (SAVEFILE.exists()){
 
-            fileString = requireContext().openFileInput(SlideshowFragment.FILENAME)!!.bufferedReader().useLines { lines ->
+            fileString = requireContext().openFileInput(FILENAME)!!.bufferedReader().useLines { lines ->
                 lines.fold("") { some, text ->
                     "$some$text"
                 }
