@@ -155,7 +155,7 @@ class HomeFragment : Fragment() {
             val textValue2 = row.findViewById<TextView>(R.id.textValue2)
             val date = row.findViewById<TextView>(R.id.date)
 
-            if(mRecords[position].mCustom != "none" or mRecords[position].mCustom != "null"){
+            if((mRecords[position].mCustom != "none") || (mRecords[position].mCustom != "null")){
                 textValue.text = mRecords[position].mCustom
             }else {
                 textValue.text = "No notes"
@@ -163,12 +163,13 @@ class HomeFragment : Fragment() {
             textValue2.text = mRecords[position].mMood
 
             val colors = arrayOf<Int>(
+                Color.rgb(0,150,0),
+                Color.RED,
+                Color.GRAY,
                 Color.WHITE,
                 Color.YELLOW,
-                Color.RED,
-                Color.rgb(0,150,0),
-                Color.rgb(100,100,230),
-                Color.GRAY
+                Color.rgb(100,100,230)
+
             )
 
             var index = 0
@@ -176,6 +177,9 @@ class HomeFragment : Fragment() {
 
                 if(mRecords[position].mMood in y){
                     index =  MoodDataClass.data.indexOf(x)
+                }
+                if(mRecords[position].mMood in MoodDataClass.data){
+                    index =  MoodDataClass.data.indexOf(mRecords[position].mMood)
                 }
             }
 
