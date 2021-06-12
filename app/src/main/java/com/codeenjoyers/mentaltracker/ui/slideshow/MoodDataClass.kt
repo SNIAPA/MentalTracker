@@ -5,18 +5,18 @@ import java.util.*
 
 class MoodDataClass {
     companion object {
-        val data = mutableListOf<String>("Obrzydzenie","Złość","Strach","Zaskoczenie","Szczęście","Smutek")
+        val data = mutableListOf<String>("Smutek","Szczęście","Zaskoczenie","Strach","Złość","Obrzydzenie")
 
         val innerData : MutableMap<String, MutableList<String>> = mutableMapOf()
 
         fun init() {
             innerData.clear()
-            innerData[data[0]] = mutableListOf("Znieszmaczony", "Niechętny", "Krytyczny", "Rozczarowany")
-            innerData[data[1]] = mutableListOf("Nienawiść","Zraniony","Skeptycznie","Podejrzanie","Zagrożony","Zfrustrowany","Zły","Agresywny")
-            innerData[data[2]] = mutableListOf("Odrzucony", "Upokorzony", "Niepewny", "Podatny", "Zlękniony", "Przestraszony")
-            innerData[data[3]] = mutableListOf("Zadziwiony", "Zainponowany","Zmieszanie","Podekscytowany")
-            innerData[data[4]] = mutableListOf("Spokojny", "Optymistyczny", "Silny", "Potężny", "Zainteresowany", "Dumny", "Radosny", "Zaakceptowany")
-            innerData[data[5]] = mutableListOf("Winny","Samotny","Znudzony", "Rozpaczony", "Zdesperowany", "Porzucony")
+            innerData[data[5]] = mutableListOf("Znieszmaczony", "Niechętny", "Krytyczny", "Rozczarowany").asReversed()
+            innerData[data[4]] = mutableListOf("Nienawiść","Zraniony","Skeptycznie","Zagrożony","Podejrzanie","Zfrustrowany","Zły","Agresywny").asReversed()
+            innerData[data[3]] = mutableListOf("Odrzucony", "Upokorzony", "Niepewny", "Podatny", "Zlękniony", "Przestraszony").asReversed()
+            innerData[data[2]] = mutableListOf("Zadziwiony", "Zainponowany","Zmieszanie","Podekscytowany").asReversed()
+            innerData[data[1]] = mutableListOf("Spokojny", "Optymistyczny", "Silny", "Potężny", "Zainteresowany", "Dumny", "Radosny", "Zaakceptowany").asReversed()
+            innerData[data[0]] = mutableListOf("Winny","Samotny","Znudzony", "Rozpaczony", "Zdesperowany", "Porzucony").asReversed()
 
         }
 
