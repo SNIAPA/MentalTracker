@@ -1,6 +1,9 @@
 package com.codeenjoyers.mentaltracker.ui.slideshow
 
+import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +25,10 @@ import java.util.*
 class SlideshowFragment : Fragment() {
     private lateinit var imageView: ImageView
     private lateinit var seekBar: SeekBar
-    private lateinit var next: Button
     private lateinit var submit: Button
     private lateinit var back: Button
+    private lateinit var next: Button
+
     private var page : Int = 0
     private var selectionList: MutableList<String> = mutableListOf()
 
@@ -44,9 +48,9 @@ class SlideshowFragment : Fragment() {
 
         imageView = root.findViewById(R.id.imageView2)
         seekBar = root.findViewById(R.id.seekBar)
-        back = root.findViewById(R.id.back)
         submit = root.findViewById(R.id.submit)
         next = root.findViewById(R.id.next)
+        back = root.findViewById(R.id.back)
 
         createPage(page)
 
@@ -62,18 +66,20 @@ class SlideshowFragment : Fragment() {
 
         next.setOnClickListener {
             selectionList.add(MoodDataClass.at(180 + seekBar.progress))
+            Log.d("LIST", selectionList.toString())
             createPage(++page)
         }
 
         back.setOnClickListener {
             selectionList.removeAt(selectionList.lastIndex)
+            Log.d("LIST", selectionList.toString())
             createPage(--page)
         }
 
         submit.setOnClickListener {
             selectionList.add(MoodDataClass.at(180 + seekBar.progress))
             saveData(selectionList.last())
-
+            Log.d("LIST", selectionList.toString())
             selectionList.removeAt(selectionList.lastIndex)
 
             val fragment2 = HomeFragment()
@@ -120,7 +126,8 @@ class SlideshowFragment : Fragment() {
                 next.isEnabled = true
             }
             1 -> {
-                imageView.setImageResource(R.drawable.codeenjoyerslogo)
+                Log.d("LIST", MoodDataClass.noPolish(selectionList[0]))
+                imageView.setImageResource(resources.getIdentifier(MoodDataClass.noPolish(selectionList[0]), "drawable", activity?.packageName))
                 back.isEnabled = true
                 next.isEnabled = false
             }
