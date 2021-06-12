@@ -105,16 +105,17 @@ class SlideshowFragment : Fragment() {
                     inputedText = input.text.toString()
                     saveData(selectionList.last(), inputedText)
                     selectionList.removeAt(selectionList.lastIndex)
+                    val fragment2 = HomeFragment()
+                    val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+                    val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.replace(this@SlideshowFragment.id, fragment2, "tag")
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
                 }
+
             })
             builder.show()
 
-            val fragment2 = HomeFragment()
-            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
-            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(this.id, fragment2, "tag")
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
         }
 
         return root
