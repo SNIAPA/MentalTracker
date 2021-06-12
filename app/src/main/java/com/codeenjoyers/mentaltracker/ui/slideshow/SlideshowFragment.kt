@@ -34,6 +34,12 @@ class SlideshowFragment : Fragment() {
     private lateinit var submit: Button
     private lateinit var back: Button
     private lateinit var next: Button
+    private lateinit var face1: ImageView
+    private lateinit var face2: ImageView
+    private lateinit var face3: ImageView
+    private lateinit var face4: ImageView
+    private lateinit var face5: ImageView
+    private lateinit var face6: ImageView
 
     private var page : Int = 0
     private var selectionList: MutableList<String> = mutableListOf()
@@ -60,6 +66,14 @@ class SlideshowFragment : Fragment() {
         submit = root.findViewById(R.id.submit)
         next = root.findViewById(R.id.next)
         back = root.findViewById(R.id.back)
+
+
+        face1 = root.findViewById(R.id.imageView4)
+        face2 = root.findViewById(R.id.imageView5)
+        face3 = root.findViewById(R.id.imageView6)
+        face4 = root.findViewById(R.id.imageView7)
+        face5 = root.findViewById(R.id.imageView8)
+        face6 = root.findViewById(R.id.imageView9)
 
         imageView.isClickable = true
         imageView.setOnTouchListener( object : View.OnTouchListener {
@@ -96,6 +110,14 @@ class SlideshowFragment : Fragment() {
                     Log.d("FINAL", final.toString())
                     selectionList.add(MoodDataClass.data[final])
 
+
+
+                    face1.visibility = GONE
+                    face2.visibility = GONE
+                    face3.visibility = GONE
+                    face4.visibility = GONE
+                    face5.visibility = GONE
+                    face6.visibility = GONE
 
                     createPage(1)
                     submit.visibility = VISIBLE
