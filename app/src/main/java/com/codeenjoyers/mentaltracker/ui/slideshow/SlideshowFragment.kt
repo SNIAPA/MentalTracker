@@ -1,6 +1,9 @@
 package com.codeenjoyers.mentaltracker.ui.slideshow
 
+import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,24 +12,30 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.codeenjoyers.mentaltracker.R
+import com.codeenjoyers.mentaltracker.ui.home.HomeFragment
 import java.io.File
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class SlideshowFragment : Fragment() {
     private lateinit var imageView: ImageView
     private lateinit var seekBar: SeekBar
-    private lateinit var next: Button
     private lateinit var submit: Button
     private lateinit var back: Button
+    private lateinit var next: Button
+
     private var page : Int = 0
     private var selectionList: MutableList<String> = mutableListOf()
 
     companion object {
         const val FILENAME = "FILENAME"
         const val INTERSPACE = "&"
+        const val INFO_INTERSPACE = "/"
     }
 
     override fun onCreateView(
@@ -37,11 +46,12 @@ class SlideshowFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
 
+        MoodDataClass.init()
         imageView = root.findViewById(R.id.imageView2)
         seekBar = root.findViewById(R.id.seekBar)
-        back = root.findViewById(R.id.back)
         submit = root.findViewById(R.id.submit)
         next = root.findViewById(R.id.next)
+        back = root.findViewById(R.id.back)
 
         createPage(page)
 
@@ -52,34 +62,47 @@ class SlideshowFragment : Fragment() {
 
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 imageView.rotation = 180f + progress.toFloat()
-                //Log.d("WHAT",MoodDataClass.at(180 + progress))
+
+                if (selectionList.size != 0)
+                    Log.d("Value",MoodDataClass.at(MoodDataClass.innerData[selectionList[0]]!!, 180 + seekBar.progress))
+                else
+                    Log.d("Value",MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
             }
         })
 
         next.setOnClickListener {
-            selectionList.add(MoodDataClass.at(180 + seekBar.progress))//page.toString() /*getSelectionValue()*/)
+            selectionList.add(MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
+            Log.d("LIST", selectionList.toString())
             createPage(++page)
         }
 
         back.setOnClickListener {
             selectionList.removeAt(selectionList.lastIndex)
+            Log.d("LIST", selectionList.toString())
             createPage(--page)
         }
 
         submit.setOnClickListener {
-            selectionList.add(MoodDataClass.at(180 + seekBar.progress))
-            //selectionList.add(page.toString() /*getSelectionValue()*/)
-
-
+            if (selectionList.size != 0)
+                selectionList.add(MoodDataClass.at(MoodDataClass.innerData[selectionList[0]]!!, 180 + seekBar.progress))
+            else
+                selectionList.add(MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
             saveData(selectionList.last())
-
+            Log.d("LIST", selectionList.toString())
             selectionList.removeAt(selectionList.lastIndex)
+
+            val fragment2 = HomeFragment()
+            val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+            val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(this.id, fragment2, "tag")
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
         }
 
         return root
     }
 
-    fun saveData(data : String = null?:"null", note : String = null?:"null") : Unit{
+    fun saveData(data: String = null ?: "null", note: String = null ?: "null") : Unit{
         fun format(string: String) : String {
             fun convertTime(lastTimeUsed: Long): String {
                 val date = Date(lastTimeUsed)
@@ -88,7 +111,7 @@ class SlideshowFragment : Fragment() {
                 return format.format(date)
             }
 
-            return (convertTime( System.currentTimeMillis() ) + INTERSPACE + string + INTERSPACE + note)
+            return (convertTime(System.currentTimeMillis()) + INFO_INTERSPACE + string + INFO_INTERSPACE + note)
         }
 
         val SAVEFILE = File(context?.filesDir, FILENAME)
@@ -112,7 +135,8 @@ class SlideshowFragment : Fragment() {
                 next.isEnabled = true
             }
             1 -> {
-                imageView.setImageResource(R.drawable.codeenjoyerslogo)
+                Log.d("LIST", MoodDataClass.noPolish(selectionList[0]))
+                imageView.setImageResource(resources.getIdentifier(MoodDataClass.noPolish(selectionList[0]), "drawable", activity?.packageName))
                 back.isEnabled = true
                 next.isEnabled = false
             }
