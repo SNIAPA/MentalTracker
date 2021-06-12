@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.FileObserver.DELETE
 import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -95,7 +97,22 @@ class HomeFragment : Fragment() {
 
         val searchButton:ImageButton = root.findViewById<ImageButton>(R.id.search)
         val editTextSearch:EditText = root.findViewById<EditText>(R.id.editTextDate)
-
+        editTextSearch.setOnKeyListener() { view: View, i: Int, keyEvent: KeyEvent ->
+            var newRecords: MutableList<record> = mutableListOf()
+            if (editTextSearch.text.toString() == "" || (editTextSearch.text.length == 1 && i == 67)) {
+                newRecords = records
+            } else {
+                for (x in records) {
+                    if (x.mMood.toString().toLowerCase().startsWith(editTextSearch.text.toString()
+                            .toLowerCase())
+                    ) {
+                        newRecords.add(x)
+                    }
+                }
+            }
+            myAdapter.updateRecords(newRecords)
+            return@setOnKeyListener false
+        }
         searchButton.setOnClickListener {
             var  newRecords: MutableList<record> = mutableListOf()
             if (editTextSearch.text.toString() == ""){
