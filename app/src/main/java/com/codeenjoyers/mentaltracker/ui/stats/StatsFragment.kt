@@ -42,7 +42,7 @@ class StatsFragment : Fragment() {
         slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        generateDataPoints()
+        //generateDataPoints()
         root.findViewById<com.codeenjoyers.mentaltracker.codeclasses.GraphView>(R.id.graph_view).setData(generateRandomDataPoints(6))
         root.findViewById<SeekBar>(R.id.seekBar2).setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, currentValue: Int, p2: Boolean) {
@@ -100,6 +100,7 @@ class StatsFragment : Fragment() {
             if (record == "") {
                 continue
             }
+
             var recordsplited = record.split("/")
             var splittedData = recordsplited[0].split(":")
             //Log.d("Test", splittedData.toString()+" "+record)
