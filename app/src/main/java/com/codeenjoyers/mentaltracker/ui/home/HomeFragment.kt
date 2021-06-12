@@ -155,7 +155,7 @@ class HomeFragment : Fragment() {
             val textValue2 = row.findViewById<TextView>(R.id.textValue2)
             val date = row.findViewById<TextView>(R.id.date)
 
-            if(mRecords[position].mCustom != "none" or mRecords[position].mCustom != "null"){
+            if(mRecords[position].mCustom != "none" || mRecords[position].mCustom != "null"){
                 textValue.text = mRecords[position].mCustom
             }else {
                 textValue.text = "No notes"
