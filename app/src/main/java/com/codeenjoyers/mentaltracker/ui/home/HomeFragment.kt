@@ -15,12 +15,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.codeenjoyers.mentaltracker.R
+import com.codeenjoyers.mentaltracker.ui.slideshow.MoodDataClass
 import com.codeenjoyers.mentaltracker.ui.slideshow.SlideshowFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.w3c.dom.Text
 import java.io.File
 import java.util.*
 import kotlin.text.toLowerCase
+import kotlin.text.indexOf
 
 class HomeFragment : Fragment() {
 
@@ -48,6 +50,7 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
 
+        MoodDataClass.init()
         val fab: FloatingActionButton = root.findViewById(R.id.fab)
         fab.setOnClickListener {
             val select : SlideshowFragment = SlideshowFragment()
@@ -70,8 +73,6 @@ class HomeFragment : Fragment() {
         }else{
             fileString = ""
         }
-
-        fileString = "0000:00:00:11:12/Happy/none&0000:00:00:11:12/Surprise/none&0000:00:00:11:12/Angry/none&0000:00:00:11:12/Disgust/none&0000:00:00:11:12/Sadness/none&0000:00:00:11:12/Fear/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&0000:00:00:11:12/Happy/none&"
 
         var splitedsting = fileString.split("&")
 
@@ -154,23 +155,33 @@ class HomeFragment : Fragment() {
             val textValue2 = row.findViewById<TextView>(R.id.textValue2)
             val date = row.findViewById<TextView>(R.id.date)
 
-            if(mRecords[position].mCustom != "none"){
+            if(mRecords[position].mCustom != "none" or mRecords[position].mCustom != "null"){
                 textValue.text = mRecords[position].mCustom
             }else {
                 textValue.text = "No notes"
             }
             textValue2.text = mRecords[position].mMood
 
-            val colors = arrayMapOf<String,Int>(
-                "Surprise" to Color.WHITE,
-                "Happy" to Color.YELLOW,
-                "Angry" to Color.RED,
-                "Disgust" to Color.rgb(0,150,0),
-                "Sadness" to Color.rgb(100,100,230),
-                "Fear" to Color.GRAY
+            val colors = arrayOf<Int>(
+                Color.WHITE,
+                Color.YELLOW,
+                Color.RED,
+                Color.rgb(0,150,0),
+                Color.rgb(100,100,230),
+                Color.GRAY
             )
 
-            textValue2.setTextColor(colors[mRecords[position].mMood]!!)
+            var index = 0
+            for ((x,y) in MoodDataClass.innerData ){
+
+                if(mRecords[position].mMood in y){
+                    index =  MoodDataClass.data.indexOf(x)
+                }
+            }
+
+
+
+            textValue2.setTextColor(colors[index]!!)
 
 
 
