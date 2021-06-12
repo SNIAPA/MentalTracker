@@ -65,7 +65,7 @@ class SlideshowFragment : Fragment() {
         imageView.setOnTouchListener( object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 view?.performClick()
-                if (event?.action == MotionEvent.ACTION_MOVE) {
+                if (event?.action == MotionEvent.ACTION_DOWN) {
 
                     val location: IntArray = IntArray(2)
                     imageView.getLocationOnScreen(location);
