@@ -97,9 +97,13 @@ class HomeFragment : Fragment() {
 
         searchButton.setOnClickListener {
             var  newRecords: MutableList<record> = mutableListOf()
-            for (x in records){
-                if (x.mMood.toString().toLowerCase() == editTextSearch.text.toString().toLowerCase()){
-                    newRecords.add(x)
+            if (editTextSearch.text.toString() == ""){
+                newRecords = records
+            }else{
+                for (x in records){
+                    if (x.mMood.toString().toLowerCase() == editTextSearch.text.toString().toLowerCase()){
+                        newRecords.add(x)
+                    }
                 }
             }
             myAdapter.updateRecords(newRecords)
