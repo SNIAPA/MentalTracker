@@ -16,10 +16,10 @@
         android:src="@drawable/image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.171" />
 
     <View
         android:id="@+id/imageView3"
@@ -102,5 +102,67 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="208dp"
+        android:src="@drawable/angry_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="78dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/dissapointed"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="72dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="67dp"
+        android:src="@drawable/disgust"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="73dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/happy_face"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="83dp"
+        android:layout_height="93dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="54dp"
+        android:src="@drawable/fear"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="73dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/surprised_face"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
