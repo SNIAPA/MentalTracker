@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.codeenjoyers.mentaltracker.R
+import com.codeenjoyers.mentaltracker.ui.slideshow.MoodDataClass
 
 class GalleryFragment : Fragment() {
 
@@ -23,6 +24,7 @@ class GalleryFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        MoodDataClass.init()
         galleryViewModel =
                 ViewModelProvider(this).get(GalleryViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
