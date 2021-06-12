@@ -20,6 +20,7 @@ import com.codeenjoyers.mentaltracker.ui.slideshow.SlideshowFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.w3c.dom.Text
 import java.io.File
+import java.io.FileOutputStream
 import java.util.*
 import kotlin.text.toLowerCase
 import kotlin.text.indexOf

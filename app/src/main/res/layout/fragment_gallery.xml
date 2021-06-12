@@ -18,17 +18,17 @@
         android:textAlignment="center"
         android:textColor="#F6F5F5"
         android:textSize="150sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455" />
+        app:layout_constraintVertical_bias="0.666" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="174dp"
-        android:layout_height="171dp"
+        android:layout_width="202dp"
+        android:layout_height="201dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/circle2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.075"
+        app:layout_constraintVertical_bias="0.554"
         app:srcCompat="@drawable/ic_baseline_circle_24" />
 
     <Button
@@ -45,10 +45,11 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg"
         android:text="Start"
+        android:textColor="@color/colorMain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.673" />
+        app:layout_constraintVertical_bias="0.971" />
 </androidx.constraintlayout.widget.ConstraintLayout>
