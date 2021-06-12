@@ -1,20 +1,21 @@
 package com.codeenjoyers.mentaltracker.ui.slideshow
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.SeekBar
-import android.widget.SeekBar.OnSeekBarChangeListener
+import android.widget.SeekBar.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -22,12 +23,13 @@ import com.codeenjoyers.mentaltracker.R
 import com.codeenjoyers.mentaltracker.ui.home.HomeFragment
 import java.io.File
 import java.io.FileOutputStream
+import java.lang.Math.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class SlideshowFragment : Fragment() {
     private lateinit var imageView: ImageView
+    private lateinit var arrowView: View
     private lateinit var seekBar: SeekBar
     private lateinit var submit: Button
     private lateinit var back: Button
@@ -42,6 +44,7 @@ class SlideshowFragment : Fragment() {
         const val INFO_INTERSPACE = "/"
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -52,10 +55,56 @@ class SlideshowFragment : Fragment() {
 
         MoodDataClass.init()
         imageView = root.findViewById(R.id.imageView2)
+        arrowView = root.findViewById(R.id.imageView3)
         seekBar = root.findViewById(R.id.seekBar)
         submit = root.findViewById(R.id.submit)
         next = root.findViewById(R.id.next)
         back = root.findViewById(R.id.back)
+
+        imageView.isClickable = true
+        imageView.setOnTouchListener( object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                view?.performClick()
+                if (event?.action == MotionEvent.ACTION_MOVE) {
+
+                    val location: IntArray = IntArray(2)
+                    imageView.getLocationOnScreen(location);
+
+                    val relPosX =event.rawX - location[0] - imageView.width/2
+                    val relPosY =event.rawY - location[1] - imageView.height/2
+
+                    val angle = atan2(relPosY.toDouble(),relPosX.toDouble())
+                    Log.i("REL COORD", relPosX.toString() + " " + relPosY.toString())
+
+                    Log.d("rad", angle.toString())
+                    Log.d("deg", (angle * 180/PI).toString())
+
+
+                    // COUNT DISTANCE
+
+                    if (selectionList.size == 1){
+
+                        val triNum = MoodDataClass!!.innerData[selectionList[0]]!!.size
+                        val final = round(((angle * 180/PI) / (360/triNum)) + (triNum/2)-0.5).toInt()
+                        selectionList.add(MoodDataClass!!.innerData[selectionList[0]]!![final])
+                        submit.performClick()
+                        Log.d("FINAL", final.toString())
+                        return true
+                    }
+
+                    val final = round(((angle * 180/PI) / 60) + 2.5F).toInt()
+                    Log.d("FINAL", final.toString())
+                    selectionList.add(MoodDataClass.data[final])
+
+
+                    createPage(1)
+                    submit.visibility = VISIBLE
+                    return true
+                }
+
+                return false
+            }
+        })
 
         createPage(page)
 
@@ -86,12 +135,13 @@ class SlideshowFragment : Fragment() {
             createPage(--page)
         }
 
-        submit.setOnClickListener {
-            if (selectionList.size != 0)
-                selectionList.add(MoodDataClass.at(MoodDataClass.innerData[selectionList[0]]!!, 180 + seekBar.progress))
-            else
-                selectionList.add(MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
+        seekBar.visibility = GONE
+        submit.visibility = INVISIBLE
+        next.visibility = INVISIBLE
+        back.visibility = INVISIBLE
+        arrowView.visibility = INVISIBLE
 
+        submit.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Wpisz Notatkę")
 
