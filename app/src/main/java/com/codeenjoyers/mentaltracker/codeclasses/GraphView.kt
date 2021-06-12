@@ -35,12 +35,12 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
     }
 
     private val axisLinePaint = Paint().apply {
-        color = Color.BLACK
+        color = Color.WHITE
         strokeWidth = 10f
     }
 
     private val canvText = Paint().apply {
-        color = Color.BLACK
+        color = Color.WHITE
         textSize=50F
         strokeWidth = 7f
         isAntiAlias = true
@@ -100,5 +100,5 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
 
 data class DataPoint(
     val xVal: Int,
-    val yVal: Int
+    var yVal: Int
 )
