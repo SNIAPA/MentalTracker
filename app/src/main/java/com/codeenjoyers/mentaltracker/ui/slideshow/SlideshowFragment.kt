@@ -100,14 +100,14 @@ class SlideshowFragment : Fragment() {
             input.inputType = InputType.TYPE_CLASS_TEXT.or(InputType.TYPE_TEXT_FLAG_MULTI_LINE)
             builder.setView(input)
 
-            builder.setPositiveButton( "Dodaj"
-            ) { dialog, which -> inputedText = input.text.toString() }
-
+            builder.setPositiveButton( "Dodaj", object : DialogInterface.OnClickListener {
+                override fun onClick(dialog: DialogInterface?, which: Int) {
+                    inputedText = input.text.toString()
+                    saveData(selectionList.last(), inputedText)
+                    selectionList.removeAt(selectionList.lastIndex)
+                }
+            })
             builder.show()
-
-            saveData(selectionList.last(), inputedText)
-            Log.d("LIST", selectionList.toString())
-            selectionList.removeAt(selectionList.lastIndex)
 
             val fragment2 = HomeFragment()
             val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
