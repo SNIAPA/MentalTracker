@@ -1,13 +1,17 @@
 package com.codeenjoyers.mentaltracker.ui.slideshow
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
@@ -87,7 +91,21 @@ class SlideshowFragment : Fragment() {
                 selectionList.add(MoodDataClass.at(MoodDataClass.innerData[selectionList[0]]!!, 180 + seekBar.progress))
             else
                 selectionList.add(MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
-            saveData(selectionList.last())
+
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Wpisz Notatkę")
+
+            val input = EditText(requireContext())
+            var inputedText = ""
+            input.inputType = InputType.TYPE_CLASS_TEXT.or(InputType.TYPE_TEXT_FLAG_MULTI_LINE)
+            builder.setView(input)
+
+            builder.setPositiveButton( "Dodaj"
+            ) { dialog, which -> inputedText = input.text.toString() }
+
+            builder.show()
+
+            saveData(selectionList.last(), inputedText)
             Log.d("LIST", selectionList.toString())
             selectionList.removeAt(selectionList.lastIndex)
 
