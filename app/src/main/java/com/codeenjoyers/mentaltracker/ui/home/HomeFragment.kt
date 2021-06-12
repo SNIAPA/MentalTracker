@@ -159,15 +159,14 @@ class HomeFragment : Fragment() {
             }
             textValue2.text = mRecords[position].mMood
 
-            val colors = arrayOf<Int>(
+            val colors = arrayListOf(
                 Color.rgb(0,150,0),
                 Color.RED,
                 Color.GRAY,
                 Color.WHITE,
                 Color.YELLOW,
                 Color.rgb(100,100,230)
-
-            )
+            ).asReversed()
 
             var index = 0
             for ((x,y) in MoodDataClass.innerData ){
