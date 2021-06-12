@@ -12,5 +12,6 @@
 <color name="colorStroke">#010101</color>
 <color name="colorMain">#FFFFFE</color>
 <color name="colorSecondary">#72757E</color>
+<color name="colorThird">#242629</color>
 <color name="colorTeritiary">#2CB67D</color>
 </resources>
