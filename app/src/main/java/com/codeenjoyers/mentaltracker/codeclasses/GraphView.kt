@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import com.codeenjoyers.mentaltracker.R
 
 class GraphView(context: Context, attributeSet: AttributeSet): View(context, attributeSet) {
 
@@ -19,23 +20,23 @@ class GraphView(context: Context, attributeSet: AttributeSet): View(context, att
     private var amplitude = 0F
 
     private val dataPointPaint = Paint().apply {
-        color = Color.RED
+        color = Color.rgb(50,0,100)
         strokeWidth = 7f
         style = Paint.Style.STROKE
     }
 
     private val dataPointFillPaint = Paint().apply {
-        color = Color.WHITE
+        color = Color.rgb(119,0,204)
     }
 
     private val dataPointLinePaint = Paint().apply {
-        color = Color.BLUE
+        color = Color.rgb(119,0,204)
         strokeWidth = 7f
         isAntiAlias = true
     }
 
     private val axisLinePaint = Paint().apply {
-        color = Color.WHITE
+        color = Color.rgb(64,64,64)
         strokeWidth = 10f
     }
 
