@@ -46,6 +46,7 @@ class SlideshowFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
 
+        MoodDataClass.init()
         imageView = root.findViewById(R.id.imageView2)
         seekBar = root.findViewById(R.id.seekBar)
         submit = root.findViewById(R.id.submit)
@@ -61,11 +62,16 @@ class SlideshowFragment : Fragment() {
 
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 imageView.rotation = 180f + progress.toFloat()
+
+                if (selectionList.size != 0)
+                    Log.d("Value",MoodDataClass.at(MoodDataClass.innerData[selectionList[0]]!!, 180 + seekBar.progress))
+                else
+                    Log.d("Value",MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
             }
         })
 
         next.setOnClickListener {
-            selectionList.add(MoodDataClass.at(180 + seekBar.progress))
+            selectionList.add(MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
             Log.d("LIST", selectionList.toString())
             createPage(++page)
         }
@@ -77,7 +83,10 @@ class SlideshowFragment : Fragment() {
         }
 
         submit.setOnClickListener {
-            selectionList.add(MoodDataClass.at(180 + seekBar.progress))
+            if (selectionList.size != 0)
+                selectionList.add(MoodDataClass.at(MoodDataClass.innerData[selectionList[0]]!!, 180 + seekBar.progress))
+            else
+                selectionList.add(MoodDataClass.at(MoodDataClass.data, 180 + seekBar.progress))
             saveData(selectionList.last())
             Log.d("LIST", selectionList.toString())
             selectionList.removeAt(selectionList.lastIndex)
